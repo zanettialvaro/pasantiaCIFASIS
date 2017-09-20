@@ -1,0 +1,8 @@
+ffmpeg -ss 00:09:22 -i Blood.Diamond.2006.mp4 -t 00:00:05 -q:v 2 "./frames/thumb3%06d.jpg"
+
+Bash-style globbing (* represents any number of any characters) is useful if your images are sequential but not necessarily in a numerically sequential order as in the previous example.
+ffmpeg -framerate 10 -pattern_type glob -i '*.jpg' -c:v libx264 -pix_fmt yuv420p out.mp4
+
+
+
+du -shx * | sort -rh | head -10

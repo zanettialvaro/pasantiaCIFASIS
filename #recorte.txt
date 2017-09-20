@@ -1,0 +1,422 @@
+The.Aviator.2004
+ffmpeg -ss 00:02:30 -i The.Aviator.2004.1080p.BrRip.x264.YIFY.mp4 -t 02:41:30 -q:v 2 "./The.Aviator.2004/The.Aviator.2004_frame%06d.jpg"
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Aviator.2004/ cropped/The.Aviator.2004-noIdent
+Tiempo para procesar imgs 'The.Aviator.2004': 18:05:21.147866
+Tiempo para calcular 'similarity': 1:42:27.742945
+Tiempo para procesar fGs (1): 6:04:32.369265
+Tiempo total del script: 1 day, 1:57:25.484451
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Aviator.2004/ identified/leo/The.Aviator.2004/ svm_sets/leo/The.Aviator.2004/
+Tiempo para procesar svmImgs: 0:01:20.398273
+Tiempo para procesar fGs (2): 3:56:10.833779
+Tiempo total del script: 4:02:50.765644
+
+------------------------------------------------------------------------
+
+J.Edgar.2011
+ffmpeg -ss 0:06:53 -i J.Edgar.2011.720p.BrRip.x264.YIFY.mp4 -t 2:03:45 -q:v 2 './J.Edgar.2011/J.Edgar.2011_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/J.Edgar.2011/ cropped/J.Edgar.2011-noIdent
+Tiempo para procesar imgs 'J.Edgar.2011': 6:56:55.115065
+Tiempo para calcular 'similarity': 0:58:55.879242
+Tiempo para procesar fGs (1): 2:05:51.095369
+Tiempo total del script: 10:05:14.614853
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/J.Edgar.2011/ identified/leo/J.Edgar.2011/ svm_sets/leo/J.Edgar.2011/
+Tiempo para procesar svmImgs: 0:00:41.351114
+Tiempo para procesar fGs (2): 1:57:14.119794
+Tiempo total del script: 2:01:33.711674
+
+------------------------------------------------------------------------
+
+The.Revenant.2015
+ffmpeg -ss 0:3:20 -i The.Revenant.2015.1080p.BluRay.x264-[YTS.AG].mp4 -t 2:23:00 -q:v 2 './The.Revenant.2015/The.Revenant.2015_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Revenant.2015/ cropped/The.Revenant.2015-noIdent
+Tiempo para procesar imgs 'The.Revenant.2015': 19:44:39.219522
+Tiempo para calcular 'similarity': 1:26:39.065139
+Tiempo para procesar fGs (1): 0:58:16.947291
+Tiempo total del script: 22:15:56.893754
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Revenant.2015/ identified/leo/The.Revenant.2015/ svm_sets/leo/The.Revenant.2015/
+Tiempo para procesar svmImgs: 0:00:06.336577
+Tiempo para procesar fGs (2): 0:20:22.282522
+Tiempo total del script: 0:24:25.894694
+
+------------------------------------------------------------------------
+
+Shutter.Island.2010
+ffmpeg -ss 0:1:1 -i Shutter.Island.2010.1080p.BluRay.x264.YIFY.mp4 -t 2:09:28 -q:v 2 './Shutter.Island.2010/Shutter.Island.2010_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Shutter.Island.2010/ cropped/Shutter.Island.2010-noIdent
+Tiempo para procesar imgs 'Shutter.Island.2010': 14:49:25.591336
+Tiempo para calcular 'similarity': 1:13:38.233669
+Tiempo para procesar fGs (1): 3:54:55.750855
+Tiempo total del script: 20:02:02.305134
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Shutter.Island.2010/ identified/leo/Shutter.Island.2010/ svm_sets/leo/Shutter.Island.2010/
+Tiempo para procesar svmImgs: 0:00:18.792659
+Tiempo para procesar fGs (2): 3:08:49.584699
+Tiempo total del script: 3:13:32.470640
+
+------------------------------------------------------------------------
+
+Gangs.Of.New.York.2002
+ffmpeg -ss 0:14:41 -i Gangs.Of.New.York.2002.REMASTERED.2002.1080p.BrRip.x264.BOKUTOX.YIFY.mp4 -t 2:20:34 -q:v 2 './Gangs.Of.New.York.2002/Gangs.Of.New.York.2002_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Gangs.Of.New.York.2002/ cropped/Gangs.Of.New.York.2002-noIdent
+Tiempo para procesar imgs 'Gangs.Of.New.York.2002': 16:49:18.489889
+Tiempo para calcular 'similarity': 1:26:15.817722
+Tiempo para procesar fGs (1): 6:29:59.659029
+Tiempo total del script: 1 day, 0:53:06.398338
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Gangs.Of.New.York.2002/ identified/leo/Gangs.Of.New.York.2002/ svm_sets/leo/Gangs.Of.New.York.2002/
+Tiempo para procesar svmImgs: 0:00:10.667091
+Tiempo para procesar fGs (2): 5:08:39.033556
+Tiempo total del script: 5:16:19.446702
+
+------------------------------------------------------------------------
+
+The.Wolf.of.Wall.Street.2013
+ffmpeg -ss 0:1:16 -i The.Wolf.of.Wall.Street.2013.1080p.BluRay.x264.YIFY.mp4 -t 2:51:44 -q:v 2 './The.Wolf.of.Wall.Street.2013/The.Wolf.of.Wall.Street.2013_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Wolf.of.Wall.Street.2013/ cropped/The.Wolf.of.Wall.Street.2013-noIdent
+Tiempo para procesar imgs 'The.Wolf.of.Wall.Street.2013': 18:25:52.014629
+Tiempo para calcular 'similarity': 1:55:43.851229
+Tiempo para procesar fGs (1): 7:24:43.768983
+Tiempo total del script: 1 day, 3:52:02.718202
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Wolf.of.Wall.Street.2013/ identified/leo/The.Wolf.of.Wall.Street.2013/ svm_sets/leo/The.Wolf.of.Wall.Street.2013/
+Tiempo para procesar svmImgs: 0:00:34.610545
+Tiempo para procesar fGs (2): 6:43:16.884514
+Tiempo total del script: 6:52:09.733157
+
+------------------------------------------------------------------------
+
+Whats.Eating.Gilbert.Grape.1993
+ffmpeg -ss 0:3:30 -i Whats.Eating.Gilbert.Grape.1993.1080p.BluRay.x264.YIFY.mp4 -t 1:50:33 -q:v 2 './Whats.Eating.Gilbert.Grape.1993/Whats.Eating.Gilbert.Grape.1993_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Whats.Eating.Gilbert.Grape.1993/ cropped/Whats.Eating.Gilbert.Grape.1993-noIdent
+Tiempo para procesar imgs 'Whats.Eating.Gilbert.Grape.1993': 20:02:56.991449
+Tiempo para calcular 'similarity': 1:17:21.477513
+Tiempo para procesar fGs (1): 3:50:47.088046
+Tiempo total del script: 1 day, 1:19:26.221965
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Whats.Eating.Gilbert.Grape.1993/ identified/leo/Whats.Eating.Gilbert.Grape.1993/ svm_sets/leo/Whats.Eating.Gilbert.Grape.1993/
+Tiempo para procesar svmImgs: 0:00:12.631640
+Tiempo para procesar fGs (2): 3:17:42.328932
+Tiempo total del script: 3:21:44.806134
+^^^muchos falsos positivos con johnny deep, se hara otra prueba con más imgs en el svm_set y se borró una imagen errónea
+
+FINAL:
+Tiempo para procesar svmImgs: 0:00:13.392790
+Tiempo para procesar fGs (2): 4:30:23.777854
+Tiempo total del script: 4:35:01.610865
+
+------------------------------------------------------------------------
+
+Inception.2010
+ffmpeg -ss 0:0:45 -i Inception.2010.1080p.BrRip.x264.YIFY.mp4 -t 2:20:15 -q:v 2 './Inception.2010/Inception.2010_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Inception.2010/ cropped/Inception.2010-noIdent
+Tiempo para procesar imgs 'Inception.2010': 18:08:49.857652
+Tiempo para calcular 'similarity': 1:18:41.672914
+Tiempo para procesar fGs (1): 4:14:00.061320
+Tiempo total del script: 23:45:53.980357
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Inception.2010/ identified/leo/Inception.2010/ svm_sets/leo/Inception.2010/
+Tiempo para procesar svmImgs: 0:00:39.724788
+Tiempo para procesar fGs (2): 2:58:18.141379
+Tiempo total del script: 3:03:22.196955
+
+------------------------------------------------------------------------
+
+The.Departed.2006
+ffmpeg -ss 00:5:0 -i The.Departed.2006.BluRay.1080p.x264.YIFY.mp4 -t 2:20:00 -q:v 2 './The.Departed.2006/The.Departed.2006_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Departed.2006/ cropped/The.Departed.2006-noIdent
+Tiempo para procesar imgs 'The.Departed.2006': 19:28:18.043729
+Tiempo para calcular 'similarity': 1:52:56.471651
+Tiempo para procesar fGs (1): 6:02:29.427606
+Tiempo total del script: 1 day, 3:28:33.609715
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Departed.2006/ identified/leo/The.Departed.2006/ svm_sets/leo/The.Departed.2006/
+
+PRIMER PASADA:
+Tiempo para procesar svmImgs: 0:00:11.119379
+Tiempo para procesar fGs (2): 4:33:54.967030
+Tiempo total del script: 4:39:14.909888
+
+FINAL:
+Tiempo para procesar svmImgs: 0:00:23.379399
+Tiempo para procesar fGs (2): 4:33:48.487804
+Tiempo total del script: 4:39:49.891359
+
+------------------------------------------------------------------------
+
+The.Basketball.Diaries.1995
+ffmpeg -ss 0:0:40 -i The.Basketball.Diaries.1995.1080p.BluRay.x264.YIFY.mp4 -t 1:37:20 -q:v 2 './The.Basketball.Diaries.1995/The.Basketball.Diaries.1995_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Basketball.Diaries.1995/ cropped/The.Basketball.Diaries.1995-noIdent
+Tiempo para procesar imgs 'The.Basketball.Diaries.1995': 19:53:01.286639
+Tiempo para calcular 'similarity': 1:01:01.829996
+Tiempo para procesar fGs (1): 3:55:18.175547
+Tiempo total del script: 1 day, 0:52:54.662737
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Basketball.Diaries.1995/ identified/leo/The.Basketball.Diaries.1995/ svm_sets/leo/The.Basketball.Diaries.1995/
+
+PRIMER PASADA:
+Tiempo para procesar svmImgs: 0:00:05.486257
+Tiempo para procesar fGs (2): 3:17:48.286442
+Tiempo total del script: 3:22:14.555456
+30184
+
+FINAL:
+Tiempo para procesar svmImgs: 0:00:15.929954
+Tiempo para procesar fGs (2): 1:40:34.436046
+Tiempo total del script: 1:44:46.581640
+32753
+
+------------------------------------------------------------------------
+
+The.Great.Gatsby.2013
+ffmpeg -ss 0:22:0 -i The.Great.Gatsby.2013.1080p.BluRay.x264.YIFY.mp4 -t 1:46:55 -q:v 2 './The.Great.Gatsby.2013/The.Great.Gatsby.2013_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Great.Gatsby.2013/ cropped/The.Great.Gatsby.2013-noIdent
+Tiempo para procesar imgs 'The.Great.Gatsby.2013': 15:45:19.855402
+Tiempo para calcular 'similarity': 1:02:38.883054
+Tiempo para procesar fGs (1): 4:35:17.923085
+Tiempo total del script: 21:26:49.452782
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Great.Gatsby.2013/ identified/leo/The.Great.Gatsby.2013.PrimerPasada/ svm_sets/leo/VariousMiddleAge/
+Tiempo para procesar svmImgs: 0:00:13.024820
+Tiempo para procesar fGs (2): 3:10:01.103559
+Tiempo total del script: 3:13:57.216327
+26032
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Great.Gatsby.2013/ identified/leo/The.Great.Gatsby.2013/ svm_sets/leo/The.Great.Gatsby.2013/
+Tiempo para procesar svmImgs: 0:00:15.978626
+Tiempo para procesar fGs (2): 1:55:17.813244
+Tiempo total del script: 1:59:27.559685
+
+------------------------------------------------------------------------
+
+Titanic.1997
+ffmpeg -ss 0:22:0 -i Titanic.1997.HDTV.1080p.x264.YIFY.mp4 -t 2:10:00 -q:v 2 './Titanic.1997/Titanic.1997_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Titanic.1997/ cropped/Titanic.1997-noIdent
+Tiempo para procesar imgs 'Titanic.1997': 21:49:36.441972
+Tiempo para calcular 'similarity': 1:25:00.836234
+Tiempo para procesar fGs (1): 4:45:37.839309
+Tiempo total del script: 1 day, 4:04:32.018588
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Titanic.1997/ identified/leo/Titanic.1997.PrimerPasada/ svm_sets/leo/VariousYoung/
+Tiempo para procesar svmImgs: 0:00:19.948392
+Tiempo para procesar fGs (2): 3:19:54.429011
+Tiempo total del script: 3:24:30.579689
+20118
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Titanic.1997/ identified/leo/Titanic.1997/ svm_sets/leo/Titanic.1997/
+Tiempo para procesar svmImgs: 0:00:15.432889
+Tiempo para procesar fGs (2): 2:01:19.264669
+Tiempo total del script: 2:06:16.600910
+20535
+
+------------------------------------------------------------------------
+
+Romeo+Juliet.1996
+ffmpeg -ss 0:10:57 -i Romeo+Juliet.1996.BRRiP.XviD.AC3-WicKeD.avi -t 1:41:23 -q:v 2 './Romeo+Juliet.1996/Romeo+Juliet.1996_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Romeo+Juliet.1996/ cropped/Romeo+Juliet.1996-noIdent
+Tiempo para procesar imgs 'Romeo+Juliet.1996': 2:55:45.859628
+Tiempo para calcular 'similarity': 0:45:01.203340
+Tiempo para procesar fGs (1): 2:20:11.126950
+Tiempo total del script: 6:03:50.525376
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Romeo+Juliet.1996/ identified/leo/Romeo+Juliet.1996.PrimerPasada/ svm_sets/leo/VariousYoung/
+Tiempo para procesar svmImgs: 0:00:50.327294
+Tiempo para procesar fGs (2): 1:59:42.755456
+Tiempo total del script: 2:03:21.079990
+17256
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Romeo+Juliet.1996/ identified/leo/Romeo+Juliet.1996/ svm_sets/leo/Romeo+Juliet.1996/
+Tiempo para procesar svmImgs: 0:00:17.775535
+Tiempo para procesar fGs (2): 1:01:06.062904
+Tiempo total del script: 1:04:47.169332
+16058
+
+
+------------------------------------------------------------------------
+
+The.Man.In.The.Iron.Mask.1998
+ffmpeg -ss 0:6:0 -i The.Man.In.The.Iron.Mask.1998.BrRip.720p.x264.YIFY.mkv -t 1:58:00 -q:v 2 './The.Man.In.The.Iron.Mask.1998/The.Man.In.The.Iron.Mask.1998_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Man.In.The.Iron.Mask.1998/ cropped/The.Man.In.The.Iron.Mask.1998-noIdent
+Tiempo para procesar imgs 'The.Man.In.The.Iron.Mask.1998': 9:30:56.583480
+Tiempo para calcular 'similarity': 1:02:25.772135
+Tiempo para procesar fGs (1): 4:36:39.838552
+Tiempo total del script: 15:14:00.162863
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Man.In.The.Iron.Mask.1998/ identified/leo/The.Man.In.The.Iron.Mask.1998.PrimerPasada/ svm_sets/leo/VariousYoung/
+Tiempo para procesar svmImgs: 0:00:38.711819
+Tiempo para procesar fGs (2): 1:39:10.743898
+Tiempo total del script: 1:44:26.435394
+26136
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Man.In.The.Iron.Mask.1998/ identified/leo/The.Man.In.The.Iron.Mask.1998/ svm_sets/leo/The.Man.In.The.Iron.Mask.1998/
+Tiempo para procesar svmImgs: 0:00:36.235649
+Tiempo para procesar fGs (2): 1:46:22.293874
+Tiempo total del script: 1:51:14.828105
+24921
+
+------------------------------------------------------------------------
+
+Body.of.Lies.2008
+ffmpeg -ss 0:3:0 -i Body.of.Lies.2008.1080p.BluRay.x264.YIFY.mp4 -t 1:59:00 -q:v 2 './Body.of.Lies.2008/Body.of.Lies.2008_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Body.of.Lies.2008/ cropped/Body.of.Lies.2008-noIdent
+Tiempo para procesar imgs 'Body.of.Lies.2008': 16:39:22.221285
+Tiempo para calcular 'similarity': 1:04:28.059713
+Tiempo para procesar fGs (1): 3:38:20.608127
+Tiempo total del script: 21:25:53.057224
+
+ 25%|████████████▊                                       | 967/3935 [32:14<3:38:11,  4.41s/it]/usr/local/lib/python2.7/dist-packages/scipy/interpolate/_fitpack_impl.py:512: RuntimeWarning: The maximal number of iterations (20) allowed for finding smoothing
+spline with fp=s has been reached. Probable cause: s too small.
+(abs(fp-s)/s>0.001)
+  warnings.warn(RuntimeWarning(_iermess[ier][0]))
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Body.of.Lies.2008/ identified/leo/Body.of.Lies.2008.PrimerPasada/ svm_sets/leo/VariousMiddleAge/
+Tiempo para procesar svmImgs: 0:00:31.552077
+Tiempo para procesar fGs (2): 2:20:45.358245
+Tiempo total del script: 2:25:59.124820
+21375
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Body.of.Lies.2008/ identified/leo/Body.of.Lies.2008/ svm_sets/leo/Body.of.Lies.2008/
+Tiempo para procesar svmImgs: 0:00:20.463685
+Tiempo para procesar fGs (2): 1:21:28.083101
+Tiempo total del script: 1:25:52.174251
+23595
+
+------------------------------------------------------------------------
+
+Catch.Me.If.You.Can.2002
+ffmpeg -ss 0:8:0 -i Catch.Me.If.You.Can.2002.1080p.BluRay.x264.YIFY.mp4 -t 2:07:00 -q:v 2 './Catch.Me.If.You.Can.2002/Catch.Me.If.You.Can.2002_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Catch.Me.If.You.Can.2002/ cropped/Catch.Me.If.You.Can.2002-noIdent
+Tiempo para procesar imgs 'Catch.Me.If.You.Can.2002': 22:57:15.136030
+Tiempo para calcular 'similarity': 1:13:45.711989
+Tiempo para procesar fGs (1): 3:56:07.865785
+Tiempo total del script: 1 day, 4:11:10.831725
+
+ 31%|███████████████▏                                 | 1847/5955 [1:31:48<4:14:42,  3.72s/it]/usr/local/lib/python2.7/dist-packages/scipy/interpolate/_fitpack_impl.py:512: RuntimeWarning: The maximal number of iterations (20) allowed for finding smoothing
+spline with fp=s has been reached. Probable cause: s too small.
+(abs(fp-s)/s>0.001)
+  warnings.warn(RuntimeWarning(_iermess[ier][0]))
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Catch.Me.If.You.Can.2002/ identified/leo/Catch.Me.If.You.Can.2002.PrimerPasada/ svm_sets/leo/VariousMiddleAge/
+Tiempo para procesar svmImgs: 0:00:19.060774
+Tiempo para procesar fGs (2): 1:29:57.235625
+Tiempo total del script: 1:34:27.715808
+20154
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Catch.Me.If.You.Can.2002/ identified/leo/Catch.Me.If.You.Can.2002/ svm_sets/leo/Catch.Me.If.You.Can.2002/
+Tiempo para procesar svmImgs: 0:00:20.710572
+Tiempo para procesar fGs (2): 1:08:19.055938
+Tiempo total del script: 1:13:00.129884
+21578
+
+------------------------------------------------------------------------
+
+The.Beach.2000
+ffmpeg -ss 0:1:0 -i The.Beach.2000.1080p.BrRip.x264.YIFY.mp4 -t 1:47:00 -q:v 2 './The.Beach.2000/The.Beach.2000_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Beach.2000/ cropped/The.Beach.2000-noIdent
+Tiempo para procesar imgs 'The.Beach.2000': 15:25:23.914452
+Tiempo para calcular 'similarity': 0:59:10.451146
+Tiempo para procesar fGs (1): 4:04:57.475361
+Tiempo total del script: 20:32:59.843770
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/The.Beach.2000/ identified/leo/The.Beach.2000/ svm_sets/leo/The.Beach.2000/
+Tiempo para procesar svmImgs: 0:00:40.209997
+Tiempo para procesar fGs (2): 2:09:18.272244
+Tiempo total del script: 2:13:11.132098
+
+------------------------------------------------------------------------
+
+Blood.Diamond.2006
+ffmpeg -ss 0:9:0 -i Blood.Diamond.2006.1080p.BrRip.x264.YIFY.mp4 -t 2:00:00 -q:v 2 './Blood.Diamond.2006/Blood.Diamond.2006_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Blood.Diamond.2006/ cropped/Blood.Diamond.2006-noIdent
+Tiempo para procesar imgs 'Blood.Diamond.2006': 14:57:41.505541
+Tiempo para calcular 'similarity': 1:02:46.438038
+Tiempo para procesar fGs (1): 3:15:29.209220
+Tiempo total del script: 19:19:27.376925
+
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Blood.Diamond.2006/ identified/leo/Blood.Diamond.2006/ svm_sets/leo/Blood.Diamond.2006/
+Tiempo para procesar svmImgs: 0:00:30.798730
+Tiempo para procesar fGs (2): 2:07:41.685592
+Tiempo total del script: 2:09:50.018016
+
+------------------------------------------------------------------------
+
+This.Boys.Life.1993
+ffmpeg -ss 0:1:40 -i This.Boys.Life.1993.720p.Bluray.x264.YIFY.mp4 -t 1:49:20 -q:v 2 './This.Boys.Life.1993/This.Boys.Life.1993_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/This.Boys.Life.1993/ cropped/This.Boys.Life.1993-noIdent
+Tiempo para procesar imgs 'This.Boys.Life.1993': 6:11:29.374720
+Tiempo para calcular 'similarity': 0:52:28.998663
+Tiempo para procesar fGs (1): 4:20:37.113120
+Tiempo total del script: 11:27:53.560772
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/This.Boys.Life.1993/ identified/leo/This.Boys.Life.1993.PrimerPasada/ svm_sets/leo/VariousYoung/
+Tiempo para procesar svmImgs: 0:00:40.427994
+Tiempo para procesar fGs (2): 1:22:12.595724
+Tiempo total del script: 1:26:18.862449
+30783
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/This.Boys.Life.1993/ identified/leo/This.Boys.Life.1993/ svm_sets/leo/This.Boys.Life.1993/
+Tiempo para procesar svmImgs: 0:00:15.110608
+Tiempo para procesar fGs (2): 0:59:44.329507
+Tiempo total del script: 1:03:36.705712
+32416
+
+------------------------------------------------------------------------
+
+Revolutionary.Road.2008
+ffmpeg -ss 0:1:30 -i Revolutionary.Road.2008.BRRip.720p.x264.YIFY.mkv -t 1:50:30 -q:v 2 './Revolutionary.Road.2008/Revolutionary.Road.2008_frame%06d.jpg'
+
+python face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Revolutionary.Road.2008/ cropped/Revolutionary.Road.2008-noIdent
+Tiempo para procesar imgs 'Revolutionary.Road.2008': 6:19:42.453747
+Tiempo para calcular 'similarity': 0:51:27.817438
+Tiempo para procesar fGs (1): 4:08:23.940701
+Tiempo total del script: 11:23:18.051818
+
+PRIMER PASADA:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Revolutionary.Road.2008/ identified/leo/Revolutionary.Road.2008.PrimerPasada/ svm_sets/leo/VariousMiddleAge/
+Tiempo para procesar svmImgs: 0:00:09.329246
+Tiempo para procesar fGs (2): 1:28:19.888155
+Tiempo total del script: 1:32:06.779843
+28064
+
+FINAL:
+python -i face_detector.py /home/shared/datasets/leoDicaprio/peliculas/Revolutionary.Road.2008/ identified/leo/Revolutionary.Road.2008/ svm_sets/leo/Revolutionary.Road.2008/
+Tiempo para procesar svmImgs: 0:00:19.416542
+Tiempo para procesar fGs (2): 1:07:03.793122
+Tiempo total del script: 1:10:44.141398
+28161
+
