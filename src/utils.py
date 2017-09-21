@@ -94,11 +94,17 @@ def draw_landmarks(img,lands,score,color,thickness):
     if score != None:
         put_text_in_rect(img, str(round(score,4)), r, color)
 
-def show_img(filepath):
-    img=cv2.imread(filepath)
+def show_img(imgPath):
+    img=cv2.imread(imgPath)
     cv2.imshow('img',img)
     cv2.waitKey()
     cv2.destroyAllWindows()
+
+def save_img(imgPath, savePath):
+    img=cv2.imread(imgPath)
+    fgPath,basename = imgPath.split("/")[-2:]
+    newPath = os.path.join(pathCheck(os.path.join(savePath,fgPath)),basename)
+    cv2.imwrite(newPath,img)
 
 def show_face(face):
     img = cv2.imread(face.get_inImage().get_filepath())

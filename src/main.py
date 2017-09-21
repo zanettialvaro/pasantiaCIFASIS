@@ -8,8 +8,6 @@ import cv2
 import sys
 import os
 import cPickle
-import matplotlib
-#~ import matplotlib.pyplot as plt
 #~ from skimage.measure import compare_ssim as ssim  #http://www.cns.nyu.edu/pub/eero/wang03-reprint.pdf
 import multiprocessing
 import time
@@ -28,12 +26,6 @@ import faceGroup
 import fillTrack
 
 parallelExec = False
-sshExec = False
-if sshExec:
-    matplotlib.use('Agg') #para usar por ssh
-
-#~ splineFig = plt.figure(1,figsize=(20,10))
-
 
 #~ loadSimilarity = True
 #~ loadImgs = True
@@ -162,10 +154,10 @@ def similarity_hist((myImg1,myImg2)):
     return euclidean_distances([hist1,hist2])[0][1]
 
 def process_and_save_LFW():
-    lfwFiles = listFiles("./test_sets/lfw")
+    lfwFiles = utils.listFiles("../test_sets/lfw")
     sys.stdout.write("Creando contenedores de imagenes (LFW)...")
     sys.stdout.flush()
-    lfwImgs = [myImage(fIx,lfwFiles[fIx]) for fIx in range(0,len(lfwFiles))]
+    lfwImgs = [myImage.myImage(fIx,lfwFiles[fIx]) for fIx in range(0,len(lfwFiles))]
     print("OK")
 
     if parallelExec:
@@ -180,7 +172,7 @@ def process_and_save_LFW():
 
     sys.stdout.write("pickling lfwImgs.obj...")
     sys.stdout.flush()
-    with open(utils.pathCheck("pickled_objs/")+"lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
+    with open(utils.pathCheck("./pickled_objs/")+"lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
         cPickle.dump(lfwImgs, fp)
         fp.close()
     print("OK")
@@ -212,6 +204,8 @@ def pool_process2_fg((fg,svm)):
     return fg
 
 if __name__ == '__main__':
+    #~ sys.exit(1)
+    
     startTime = time.time()
     print()
     if len(sys.argv)<3:
@@ -240,7 +234,7 @@ if __name__ == '__main__':
     if loadImgs:
         sys.stdout.write("Cargando imgs desde .obj...")
         sys.stdout.flush()
-        with open("pickled_objs/"+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
+        with open("./pickled_objs/"+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
             imgs = cPickle.load(fp)
             fp.close()
         print("OK")
@@ -263,7 +257,7 @@ if __name__ == '__main__':
 
         sys.stdout.write("pickling imgs.obj...")
         sys.stdout.flush()
-        with open(utils.pathCheck("pickled_objs/")+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
+        with open(utils.pathCheck("./pickled_objs/")+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
             cPickle.dump(imgs, fp)
             fp.close()
         print("OK")
@@ -272,7 +266,7 @@ if __name__ == '__main__':
     if loadSimilarity:
         sys.stdout.write("Cargando similarity desde .obj...")
         sys.stdout.flush()
-        with open("pickled_objs/"+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
+        with open("./pickled_objs/"+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
             similarity = cPickle.load(fp)
             scene_changes = cPickle.load(fp)
             scene_limits = cPickle.load(fp)
@@ -280,16 +274,19 @@ if __name__ == '__main__':
         print("OK")
     else:
         simProcStart = time.time()
-        if not(parallelExec):
-            pool = multiprocessing.Pool(processes=multiprocessing.cpu_count())
         print()
-        sys.stdout.write("Calculando similarity...")
-        sys.stdout.flush()
         imgs1 = imgs[:-1]
         imgs2 = imgs[1:]
-        imgsPair = zip(imgs1,imgs2)
-        similarity = pool.map(similarity_hist,imgsPair)
-        print("OK")
+        imgsPairs = zip(imgs1,imgs2)
+        if parallelExec:
+            sys.stdout.write("Calculando similarity...")
+            sys.stdout.flush()
+            similarity = pool.map(similarity_hist,imgsPairs)
+            print("OK")
+        else:
+            similarity = []
+            for pair in tqdm(imgsPairs,desc="Calculando similarity"):
+                similarity.append(similarity_hist(pair))
 
         scene_changes = [(i1,i1+1,sim) for (i1,sim) in enumerate(similarity) if sim > np.mean(similarity)+2*np.std(similarity)]
         scene_limits = [(0,scene_changes[0][0])]
@@ -301,7 +298,7 @@ if __name__ == '__main__':
 
         sys.stdout.write("pickling similarity.obj...")
         sys.stdout.flush()
-        with open(utils.pathCheck("pickled_objs/")+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
+        with open(utils.pathCheck("./pickled_objs/")+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
             cPickle.dump(similarity, fp)
             cPickle.dump(scene_changes,fp)
             cPickle.dump(scene_limits,fp)
@@ -326,7 +323,7 @@ if __name__ == '__main__':
 
         sys.stdout.write("pickling fGs.obj...")
         sys.stdout.flush()
-        with open(utils.pathCheck("pickled_objs/")+set_name+"_fGs.obj", 'wb') as fp:
+        with open(utils.pathCheck("./pickled_objs/")+set_name+"_fGs.obj", 'wb') as fp:
             cPickle.dump(fGs, fp)
             fp.close()
         print("OK")
@@ -334,7 +331,7 @@ if __name__ == '__main__':
         print()
         sys.stdout.write("faceGroups: Cargando desde pickle...")
         sys.stdout.flush()
-        with open("pickled_objs/"+set_name+"_fGs.obj", 'rb') as fp:
+        with open("./pickled_objs/"+set_name+"_fGs.obj", 'rb') as fp:
             fGs = cPickle.load(fp)
             fp.close()
         print("OK")
@@ -361,7 +358,7 @@ if __name__ == '__main__':
         svmImgsProcEnd = time.time()
 
         #cargamos las imagenes de lfw ya procesadas
-        with open("pickled_objs/lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
+        with open("./pickled_objs/lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
             lfwImgs = cPickle.load(fp)
             fp.close()
         lfwFaces = utils.flattenList([img.get_faces() for img in lfwImgs])
@@ -404,13 +401,14 @@ if __name__ == '__main__':
 
         sys.stdout.write("pickling fillTracks.obj...")
         sys.stdout.flush()
-        with open(utils.pathCheck("pickled_objs/")+set_name+"_fillTracks.obj", 'wb') as fp:
+        with open(utils.pathCheck("./pickled_objs/")+set_name+"_fillTracks.obj", 'wb') as fp:
             cPickle.dump(fillTracks, fp)
             fp.close()
         print("OK")
 
-    pool.close()
-    pool.join()
+    if parallelExec:
+        pool.close()
+        pool.join()
     endTime = time.time()
     print()
     if not(loadImgs):

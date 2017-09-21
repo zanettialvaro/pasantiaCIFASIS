@@ -4,14 +4,20 @@
 import utils
 import myRect
 import myFace
+import fillTrack
 
 from scipy import interpolate
 import numpy as np
 import os
+import matplotlib
 import matplotlib.pyplot as plt
 import cv2
 import dlib
 
+sshExec = False
+
+if sshExec:
+    matplotlib.use('Agg') #para usar por ssh
 splineFig = plt.figure(1,figsize=(20,10))
 
 class faceGroup(object):
@@ -230,19 +236,19 @@ class faceGroup(object):
             r = int(round(xCenP27+spaceSide))
 
             if t < 0:
-                print("h:{}-w:{} | t={} | fg{} - img:{}".format(img_height,img_width,t,self.fgID,face.get_inImage().get_filepath()))
+                #~ print("h:{}-w:{} | t={} | fg{} - img:{}".format(img_height,img_width,t,self.fgID,face.get_inImage().get_filepath()))
                 face.set_fillTop(-t)
                 t = 0
             if b > img_height:
-                print("h:{}-w:{} | b={} | fg{} - img:{}".format(img_height,img_width,b,self.fgID,face.get_inImage().get_filepath()))
+                #~ print("h:{}-w:{} | b={} | fg{} - img:{}".format(img_height,img_width,b,self.fgID,face.get_inImage().get_filepath()))
                 face.set_fillBottom(b-img_height)
                 b = img_height
             if l < 0:
-                print("h:{}-w:{} | l={} | fg{} - img:{}".format(img_height,img_width,l,self.fgID,face.get_inImage().get_filepath()))
+                #~ print("h:{}-w:{} | l={} | fg{} - img:{}".format(img_height,img_width,l,self.fgID,face.get_inImage().get_filepath()))
                 face.set_fillLeft(-l)
                 l = 0
             if r > img_width:
-                print("h:{}-w:{} | r={} | fg{} - img:{}".format(img_height,img_width,r,self.fgID,face.get_inImage().get_filepath()))
+                #~ print("h:{}-w:{} | r={} | fg{} - img:{}".format(img_height,img_width,r,self.fgID,face.get_inImage().get_filepath()))
                 face.set_fillRight(r-img_width)
                 r = img_width
 
@@ -327,7 +333,7 @@ class faceGroup(object):
                 rightStripe = np.tile(fillWith,(1,fillR,1))
                 croppedImg = np.hstack([croppedImg,rightStripe])
             if track_fills:
-                track = fillTrack(self.fgID,fills,facePath,origShape)
+                track = fillTrack.fillTrack(self.fgID,fills,facePath,origShape)
                 face.set_fillTrack(track)
 
             if np.abs(croppedImg.shape[0] - croppedImg.shape[1]) > 1:
