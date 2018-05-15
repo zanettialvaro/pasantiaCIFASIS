@@ -10,14 +10,17 @@ from scipy import interpolate
 import numpy as np
 import os
 import matplotlib
+  
+sshExec = False
+if sshExec:
+    matplotlib.use('Agg') #para usar por ssh
+else:
+    print("\nEn caso de ejecutar por ssh, poner en True sshExec para que no falle $DISPLAY env. var.\n")  
+
 import matplotlib.pyplot as plt
 import cv2
 import dlib
 
-sshExec = False
-
-if sshExec:
-    matplotlib.use('Agg') #para usar por ssh
 splineFig = plt.figure(1,figsize=(20,10))
 
 class faceGroup(object):

@@ -9,7 +9,7 @@ import dlib
 import cv2
 import myFace
 import myRect
-#puede faltar algún import, se acomodó el código al final y no se probó toda la funcionalidad.
+#Nota: puede faltar algún import, se acomodó el código al final y no se probó absolutamente toda la funcionalidad.
 
 DETECTION_THR = 0
 

@@ -224,7 +224,7 @@ def classify_3movies():
 
 
 #=======================================================================
-#Prueba de clasificación "de bola" sin svm.
+#Prueba de clasificación "de bola" según distancia, sin svm.
 
 def myPredict(test, cen, rad, k):
     pred = []

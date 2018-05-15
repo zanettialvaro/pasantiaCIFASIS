@@ -32,6 +32,7 @@ parallelExec = False
 loadSimilarity = False
 loadImgs = False
 
+#Este grouping se uso para YouTubeFaces especialmente, ya que requiere que las identidades ya estén clasificadas en carpetas como en dicho dataset.
 def group_faces_by_folder():
     #get all folders
     folders = []
@@ -85,6 +86,7 @@ def group_faces_by_folder():
         allFaceGroups = allFaceGroups + fGs
     return allFaceGroups
 
+#Cuando procesamos frames de una pelicula utilizamos esta funcion de grouping para separar "por escena" segun la similitud de las imagenes.
 def group_faces_by_similarity():
     fgID = 0
     allFaceGroups = []
@@ -134,6 +136,7 @@ def group_faces_by_similarity():
         allFaceGroups = allFaceGroups + fGs
     return allFaceGroups
 
+# Este calculo de similarity no fue utilizado porque aumentaba demasiado el tiempo de computo y ademas no ofrece buenos resultados.
 #~ def similarity_ssim((myImg1,myImg2)):
     #~ path1 = myImg1.get_filepath()
     #~ path2 = myImg2.get_filepath()
