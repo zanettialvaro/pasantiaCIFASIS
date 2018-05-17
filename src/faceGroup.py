@@ -212,7 +212,7 @@ class faceGroup(object):
 
             if save_interpolated:
                 drawImg = copy.deepcopy(cv2img)
-                draw_landmarks(drawImg,face.lands,None,red,thickness=3)
+                draw_landmarks(drawImg,face.lands,None,utils.red,thickness=3)
                 cv2.imwrite(os.path.join(utils.pathCheck("./interpolatedImgs/fg{}".format(self.fgID)),os.path.basename(imgti.get_filepath())),drawImg)
 
     def smooth_faces(self):
@@ -303,9 +303,9 @@ class faceGroup(object):
                 cv2.circle(cv2img,(cen.x,cen.y),2,(0,255,0),2)
                 cv2.circle(cv2img,(p33.x,p33.y),2,(0,0,255),2)
                 if face.is_interpolated():
-                    draw_landmarks(cv2img,face.lands,None,blue,thickness=2)
+                    draw_landmarks(cv2img,face.lands,None,utils.blue,thickness=2)
                 else:
-                    draw_landmarks(cv2img,face.lands,None,white,thickness=2)
+                    draw_landmarks(cv2img,face.lands,None,utils.white,thickness=2)
 
             fills = face.get_fills()
             fillL = fills['fillLeft']

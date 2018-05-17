@@ -9,7 +9,6 @@ import dlib
 import cv2
 import myFace
 import myRect
-#Nota: puede faltar algún import, se acomodó el código al final y no se probó absolutamente toda la funcionalidad.
 
 DETECTION_THR = 0
 
@@ -18,6 +17,13 @@ predictor_model = "shape_predictor_68_face_landmarks.dat"
 face_pose_predictor = dlib.shape_predictor(predictor_model)
 rec_model_v1 = "dlib_face_recognition_resnet_model_v1.dat"
 embedder = dlib.face_recognition_model_v1(rec_model_v1)
+
+
+red = (0,0,255)
+green = (0,255,0)
+blue = (255,0,0)
+white = (255,255,255)
+
 
 def flattenList(l):
     return [item for sublist in l for item in sublist]

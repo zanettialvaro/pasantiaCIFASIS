@@ -28,7 +28,7 @@ class myImage(object):
         return self.faces
 
     def process(self,upscale=0):
-        #~ print("Procesando imagen: '{}'".format(self.filepath))
+        # print("Procesando imagen: '{}'".format(self.filepath))
         st = time.time()
         img = cv2.imread(self.filepath)
         #~ upscale = 0
