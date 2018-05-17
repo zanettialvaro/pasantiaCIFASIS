@@ -7,7 +7,7 @@ import dlib
 import cv2
 import sys
 import os
-import cPickle
+import cPickle as pkl
 #~ from skimage.measure import compare_ssim as ssim  #http://www.cns.nyu.edu/pub/eero/wang03-reprint.pdf
 import multiprocessing
 import time
@@ -32,61 +32,11 @@ parallelExec = False
 loadSimilarity = False
 loadImgs = False
 
-#Este grouping se uso para YouTubeFaces especialmente, ya que requiere que las identidades ya estén clasificadas en carpetas como en dicho dataset.
-def group_faces_by_folder():
-    #get all folders
-    folders = []
-    for img in imgs:
-        folder,basename = os.path.split(img.get_filepath())
-        if not(folder in folders):
-            folders.append(folder)
+pickleProtocol = 2
 
-    #group images
-    fgID = 0
-    allFaceGroups = []
-    for currFolder in folders:
-        max_detected = 0
-        currFaceID = 0
-        fGs = [faceGroup(fgID)]
-        fGs[0].set_faceID(currFaceID)
-        fgID += 1
-        imgsInCurrFold = [img for img in imgs if currFolder == os.path.split(img.get_filepath())[0]]
-        for img in imgsInCurrFold:
-            if img.get_nDetected() > max_detected:
-                max_detected = img.get_nDetected()
-            for face in img.get_faces():
-                accepted = False
-                for fg in fGs:
-                    if fg.is_empty() or (fg.overlap(face) and not(fg.image_here(face.get_inImage()))):
-                        accepted = True
-                        face.set_id(fg.get_faceID())
-                        fg.add_face(face)
-                        break
-                if not(accepted):
-                    fg_new = faceGroup(fgID)
-                    currFaceID += 1
-                    fg_new.set_faceID(currFaceID)
-                    face.set_id(currFaceID)
-                    fgID += 1
-                    fg_new.add_face(face)
-                    fGs.append(fg_new)
+#El grouping "by_folder" se dejó en extract_YouTubeFaces.py únicamente, ya que requiere que las identidades ya estén clasificadas en carpetas como en dicho dataset.
 
-        for fg in fGs:
-            fg.calculate_detLimits()
-
-        for img in imgsInCurrFold:
-            if img.get_nDetected() < max_detected:
-                frameIx = img.get_frameIx()
-                for fg in fGs:
-                    if not(fg.is_empty()) and not(fg.image_here(img)) and fg.lDet < frameIx < fg.hDet:
-                        prevF,nextF = fg.get_prev_next_det(frameIx)
-                        if np.abs(frameIx-prevF)<=3 or np.abs(frameIx-nextF)<=3:
-                            fg.add_imgToInterpolate(img)
-
-        allFaceGroups = allFaceGroups + fGs
-    return allFaceGroups
-
-#Cuando procesamos frames de una pelicula utilizamos esta funcion de grouping para separar "por escena" segun la similitud de las imagenes.
+#Cuando procesamos frames de una pelicula utilizamos esta funcion de grouping para separar "por escena" según la similitud de las imágenes.
 def group_faces_by_similarity():
     fgID = 0
     allFaceGroups = []
@@ -176,16 +126,11 @@ def process_and_save_LFW():
     sys.stdout.write("pickling lfwImgs.obj...")
     sys.stdout.flush()
     with open(utils.pathCheck("./pickled_objs/")+"lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
-        cPickle.dump(lfwImgs, fp)
+        pkl.dump(lfwImgs, fp, protocol=pickleProtocol)
         fp.close()
     print("OK")
 
 #=======================================================================
-
-red = (0,0,255)
-green = (0,255,0)
-blue = (255,0,0)
-white = (255,255,255)
 
 def pool_process_img(img):
     img.process()
@@ -207,8 +152,11 @@ def pool_process2_fg((fg,svm)):
     return fg
 
 if __name__ == '__main__':
-    #~ sys.exit(1)
-    
+    #Checkear si LFW están procesadas
+    if not(os.path.isfile("./pickled_objs/lfwImgs_detThr{}.obj".format(utils.DETECTION_THR))):
+        print("(!) No se encontró el archivo con las imágenes de LFW procesadas, asegurarse de tener las imágenes en el path: '../test_sets/lfw' para procesarlas a continuación o cambiar el path en la función 'process_and_save_LFW()'.")
+        process_and_save_LFW()
+
     startTime = time.time()
     print()
     if len(sys.argv)<3:
@@ -238,7 +186,7 @@ if __name__ == '__main__':
         sys.stdout.write("Cargando imgs desde .obj...")
         sys.stdout.flush()
         with open("./pickled_objs/"+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
-            imgs = cPickle.load(fp)
+            imgs = pkl.load(fp)
             fp.close()
         print("OK")
     else:
@@ -261,7 +209,7 @@ if __name__ == '__main__':
         sys.stdout.write("pickling imgs.obj...")
         sys.stdout.flush()
         with open(utils.pathCheck("./pickled_objs/")+set_name+"_imgs_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
-            cPickle.dump(imgs, fp)
+            pkl.dump(imgs, fp, protocol=pickleProtocol)
             fp.close()
         print("OK")
 
@@ -270,9 +218,9 @@ if __name__ == '__main__':
         sys.stdout.write("Cargando similarity desde .obj...")
         sys.stdout.flush()
         with open("./pickled_objs/"+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
-            similarity = cPickle.load(fp)
-            scene_changes = cPickle.load(fp)
-            scene_limits = cPickle.load(fp)
+            similarity = pkl.load(fp)
+            scene_changes = pkl.load(fp)
+            scene_limits = pkl.load(fp)
             fp.close()
         print("OK")
     else:
@@ -302,9 +250,9 @@ if __name__ == '__main__':
         sys.stdout.write("pickling similarity.obj...")
         sys.stdout.flush()
         with open(utils.pathCheck("./pickled_objs/")+set_name+"_similarity_detThr{}.obj".format(utils.DETECTION_THR), 'wb') as fp:
-            cPickle.dump(similarity, fp)
-            cPickle.dump(scene_changes,fp)
-            cPickle.dump(scene_limits,fp)
+            pkl.dump(similarity, fp, protocol=pickleProtocol)
+            pkl.dump(scene_changes,fp, protocol=pickleProtocol)
+            pkl.dump(scene_limits,fp, protocol=pickleProtocol)
             fp.close()
         print("OK")
 
@@ -327,7 +275,7 @@ if __name__ == '__main__':
         sys.stdout.write("pickling fGs.obj...")
         sys.stdout.flush()
         with open(utils.pathCheck("./pickled_objs/")+set_name+"_fGs.obj", 'wb') as fp:
-            cPickle.dump(fGs, fp)
+            pkl.dump(fGs, fp, protocol=pickleProtocol)
             fp.close()
         print("OK")
     else:
@@ -335,7 +283,7 @@ if __name__ == '__main__':
         sys.stdout.write("faceGroups: Cargando desde pickle...")
         sys.stdout.flush()
         with open("./pickled_objs/"+set_name+"_fGs.obj", 'rb') as fp:
-            fGs = cPickle.load(fp)
+            fGs = pkl.load(fp)
             fp.close()
         print("OK")
 
@@ -362,7 +310,7 @@ if __name__ == '__main__':
 
         #cargamos las imagenes de lfw ya procesadas
         with open("./pickled_objs/lfwImgs_detThr{}.obj".format(utils.DETECTION_THR), 'rb') as fp:
-            lfwImgs = cPickle.load(fp)
+            lfwImgs = pkl.load(fp)
             fp.close()
         lfwFaces = utils.flattenList([img.get_faces() for img in lfwImgs])
         seedN = 2017
@@ -405,7 +353,7 @@ if __name__ == '__main__':
         sys.stdout.write("pickling fillTracks.obj...")
         sys.stdout.flush()
         with open(utils.pathCheck("./pickled_objs/")+set_name+"_fillTracks.obj", 'wb') as fp:
-            cPickle.dump(fillTracks, fp)
+            pkl.dump(fillTracks, fp, protocol=pickleProtocol)
             fp.close()
         print("OK")
 
