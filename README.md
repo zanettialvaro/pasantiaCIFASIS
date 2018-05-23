@@ -18,6 +18,7 @@ The dlib library only has four primary prerequisites:
     +X11/XQuartx: Short for “X Window System”, X11 provides a basic framework for GUI development, common on Unix-like operating systems. The macOS/OSX version of X11 is called XQuartz.
 
 Instalamos mediante:
+
     sudo apt-get install build-essential cmake
     sudo apt-get install libgtk-3-dev
     sudo apt-get install libboost-all-dev
@@ -33,10 +34,13 @@ Instalar:
     -SciPy
     -scikit-image
 con:
+
     pip install --user numpy
     pip install --user scipy
     pip install --user scikit-image
+    
 Instalamos dlib:
+
     pip install --user dlib
 
 ===============================================================================================
@@ -48,6 +52,7 @@ Instalación openCV con apt:
 EN CASO DE NO FUNCIONAR LO ANTERIOR, hay que hacer la compilacion e instalar:
 (http://docs.opencv.org/2.4/doc/tutorials/introduction/linux_install/linux_install.html) :
 Required Packages:
+
 [compiler] sudo apt-get install build-essential
 [required] sudo apt-get install cmake git libgtk2.0-dev pkg-config libavcodec-dev libavformat-dev libswscale-dev
 [optional] sudo apt-get install libtbb2 libtbb-dev libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev
@@ -56,17 +61,20 @@ Getting OpenCV Source Code:
 You can use the latest stable OpenCV version available in sourceforge or you can grab the latest snapshot from our Git repository (https://github.com/opencv/opencv).
 
 Building OpenCV from Source Using CMake, Using the Command Line:
-1. Create a temporary directory, which we denote as <cmake_binary_dir>, where you want to put the generated Makefiles, project files as well the object files and output binaries.
+1. Create a temporary directory, which we denote as < cmake_binary_dir >, where you want to put the generated Makefiles, project files as well the object files and output binaries.
 
-2. Enter the <cmake_binary_dir> and type:
-    cmake [<some optional parameters>] <path to the OpenCV source directory>
+2. Enter the < cmake_binary_dir > and type:
+
+    cmake [some optional parameters] < path to the OpenCV source directory >
+    
 For example:
+    
     cd ~/opencv
     mkdir release
     cd release
     cmake -D CMAKE_BUILD_TYPE=RELEASE -D CMAKE_INSTALL_PREFIX=/usr/local ..
 
-3. Enter the created temporary directory (<cmake_binary_dir>) and proceed with:
+3. Enter the created temporary directory (< cmake_binary_dir >) and proceed with:
     make
     sudo make install
 
@@ -74,9 +82,10 @@ For example:
 
 Modo de uso:
 ============
+    python main.py 'imgs_src' 'dest' ['svm_imgs']
 
-python main.py 'imgs_src' 'dest' ['svm_imgs']
 donde:
+
 	'img_src', es la ruta del dataset a procesar.
 	'dest', es el destino donde se guardarán las imágenes procesadas (identificadas o no, dependiendo si se proveen 'svm_imgs' o no).
 	'svm_imgs', generalmente consiste de unas 300 imágenes tomadas a mano (al copiar toda la carpeta esto no es tanto trabajo) del proceso anterior de recorte con la identidad pretendida a separar.
@@ -93,8 +102,11 @@ IMPORTANTE:
 ===============================================================================================
 
 >Para convertir un video en frames, utilizamos ffmpeg: 
+
 	ffmpeg -ss start_time -i movie_file -t duration -q:v quality output_file
+    
 	donde:
+    
 		• start_time, movie_file y duration son obvios.
 		• quality: Rango efectivo para JPEG: 2-31 (31 es la peor calidad).
 			Valores recomendados: 2-5.
